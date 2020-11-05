@@ -10,8 +10,8 @@ namespace AtividadePratica
     public class Grafo
     {
 		private Prim prim = new Prim();
-		public List<string>[] vertices = new List<string>[10];
-		public List<string>[] verticesNaoDirigido = new List<string>[10];
+		public List<string>[] vertices = new List<string>[20];
+		public List<string>[] verticesNaoDirigido = new List<string>[20];
 
 
 		public List<string> NOMESVERTICE = new List<string>();
@@ -24,10 +24,10 @@ namespace AtividadePratica
 		private int NumeroV = 0;
 		public Grafo(int numVertices, string nomeArquivo, int numeroVerticesNaoDirigido, string NomeArquivoNaoDirigido)
 		{
+			Console.WriteLine(NumeroVerticesNaoDirigido);
 			for (int i = 0; i < numVertices; i++)
 				vertices[i] = new List<string>();
-			
-			
+
 			for (int i = 0; i < numeroVerticesNaoDirigido; i++)
 				verticesNaoDirigido[i] = new List<string>();
 
@@ -43,12 +43,11 @@ namespace AtividadePratica
 
 		public void addArestas(int i, int s, int j)
 		{
-				vertices[i].Add(j + " ---> " + s);
+		     vertices[i].Add(j + " ---> " + s);
 		}
 
 		public void addArestasNaoDirigido(int i, int s, int j)
 		{
-			if(j < 7 && i < 7)
 			verticesNaoDirigido[i].Add(j + " Peso ==> " + s);
 		}
 		public void IMPRIMIR()
@@ -385,8 +384,68 @@ namespace AtividadePratica
 			return false;
         }
 
+
+
 		public int getCutVertices() 
 		{
+			List<string>[] grafoclonado = new List<string>[20];
+			for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
+				grafoclonado[i] = new List<string>();
+
+			foreach (var item in verticesNaoDirigido)
+			{
+				grafoclonado = verticesNaoDirigido;
+			}
+			int a = 0;
+			int p = 0;
+
+			foreach (var item in grafoclonado)
+			{
+				if (a < NumeroVerticesNaoDirigido)
+				{
+					p = 0;
+					foreach (var s in grafoclonado[a])
+					{
+						string[] splitando = s.Split(" ");
+						if (a == 2 || splitando[0] == "2") 
+						{
+							Console.WriteLine(a + " " +s);
+							Console.WriteLine(grafoclonado[a][p]); 
+						}
+						p++;
+					}
+					a++;
+				}
+			}
+			a = 0;
+
+			Console.WriteLine("Grafo não dirigido \n\n\n");
+			foreach (var item in grafoclonado)
+			{
+				if (a < NumeroVerticesNaoDirigido)
+				{
+					foreach (var s in grafoclonado[a])
+					{
+						string[] splitando = s.Split(" ");
+						Console.WriteLine(a + " ------- " + s);
+
+						Console.WriteLine(splitando[0] + " ---------- " + a + " " + splitando[1] + " " + splitando[2] + " " + splitando[3]);
+
+					}
+					a++;
+				}
+			}
+
+			/*
+
+			Grafoc G = new Grafoc(NumeroV);
+			GrafoM solucao = new GrafoM(G);
+			solucao.buscaProfundidade();
+			if (solucao.componentes == 1)
+				return 0;
+			else
+				return 1;
+*/
 			return 0;
 		}
 

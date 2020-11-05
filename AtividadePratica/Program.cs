@@ -8,17 +8,40 @@ namespace AtividadePratica
 {
     class Program
     {
+        static int MaiorVertice() 
+        {
+            int maior = 0;
+
+            using (StreamReader SW = new StreamReader("grafonaodirigido.txt"))
+            {
+                SW.ReadLine();//7
+                string letra = SW.ReadLine();
+                while (letra != null) 
+                {
+                    if (maior < int.Parse(letra.Split(';')[0])) 
+                    {
+                        maior = int.Parse(letra.Split(';')[0]);
+                    }
+                    if (maior < int.Parse(letra.Split(';')[1])) 
+                    {
+                        maior = int.Parse(letra.Split(';')[1]);
+                    }
+                    letra = SW.ReadLine();
+                }
+
+            }
+            return maior;
+        }
 
          static void Main(string[] args)
         {
 
 
-            int vertices = 1;
-            bool primeito = true;
 
-            Grafo grafo = new Grafo(6, "GrafoDirigido", 6, "grafonaodirigido");//Coloque a quantidade de vertice que possir o grafo
 
-            Console.WriteLine(grafo.isConexo());
+            Grafo grafo = new Grafo(MaiorVertice(), "GrafoDirigido", MaiorVertice(), "grafonaodirigido");//Coloque a quantidade de vertice que possir o grafo
+
+            Console.WriteLine(grafo.getCutVertices());
             /*
 
             Func of = new Func();
