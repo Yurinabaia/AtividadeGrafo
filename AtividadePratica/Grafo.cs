@@ -16,12 +16,13 @@ namespace AtividadePratica
 
 		public List<string> NOMESVERTICE = new List<string>();
 		public List<string> NOMESVERTICENaoDirigido = new List<string>();
+		public List<int>[] verticesV = new List<int>[20];
 
 		public int numeroVertices { get; set; }
 		public int NumeroVerticesNaoDirigido { get; set; }
 		private int graNaoDirecionado = 0;
 		private bool isolado = true;
-		private int NumeroV = 0;
+		public int NumeroV = 0;
 		public Grafo(int numVertices, string nomeArquivo, int numeroVerticesNaoDirigido, string NomeArquivoNaoDirigido)
 		{
 			Console.WriteLine(NumeroVerticesNaoDirigido);
@@ -392,27 +393,26 @@ namespace AtividadePratica
 			for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
 				grafoclonado[i] = new List<string>();
 
-			foreach (var item in verticesNaoDirigido)
-			{
-				grafoclonado = verticesNaoDirigido;
-			}
-			int a = 0;
-			int p = 0;
+			for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
+				verticesV[i] = new List<int>();
 
-			foreach (var item in grafoclonado)
+
+			int a = 0;
+			//verticesNaoDirigido[i].Add(j + " Peso ==> " + s);
+
+			foreach (var item in verticesNaoDirigido)
 			{
 				if (a < NumeroVerticesNaoDirigido)
 				{
-					p = 0;
-					foreach (var s in grafoclonado[a])
+					foreach (var s in verticesNaoDirigido[a])
 					{
 						string[] splitando = s.Split(" ");
-						if (a == 2 || splitando[0] == "2") 
+						//Console.WriteLine(a + " " + splitando[0]);
+						//Console.WriteLine(s);
+						if (a != 5 && splitando[0] != "5") 
 						{
-							Console.WriteLine(a + " " +s);
-							Console.WriteLine(grafoclonado[a][p]); 
+							grafoclonado[a].Add(s);
 						}
-						p++;
 					}
 					a++;
 				}
@@ -428,25 +428,19 @@ namespace AtividadePratica
 					{
 						string[] splitando = s.Split(" ");
 						Console.WriteLine(a + " ------- " + s);
-
+						verticesV[a].Add(int.Parse(splitando[0].Trim()));
 						Console.WriteLine(splitando[0] + " ---------- " + a + " " + splitando[1] + " " + splitando[2] + " " + splitando[3]);
 
 					}
 					a++;
 				}
 			}
-
-			/*
-
-			Grafoc G = new Grafoc(NumeroV);
-			GrafoM solucao = new GrafoM(G);
-			solucao.buscaProfundidade();
+			GrafoM solucao = new GrafoM(this);
+			solucao.buscaProfundidadeV();
 			if (solucao.componentes == 1)
 				return 0;
 			else
 				return 1;
-*/
-			return 0;
 		}
 
 		public void AlgoritmoPrim(int vertice) 

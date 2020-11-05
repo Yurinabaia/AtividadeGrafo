@@ -14,6 +14,7 @@ namespace AtividadePratica
 		private int[] d, t, antecessor;
 		private String saida;
 		private Grafoc grafo;
+		private Grafo grafoV;
 		public int componentes = 1;
 		private int contador =0;
 
@@ -22,6 +23,15 @@ namespace AtividadePratica
 		{
 			this.grafo = g;
 			int n = grafo.numeroVertices;
+			d = new int[n];
+			t = new int[n];
+			antecessor = new int[n];
+			saida = "";
+		}
+		public GrafoM(Grafo g)
+		{
+			this.grafoV = g;
+			int n = grafoV.NumeroVerticesNaoDirigido;
 			d = new int[n];
 			t = new int[n];
 			antecessor = new int[n];
@@ -59,6 +69,28 @@ namespace AtividadePratica
 			return tempo;
 		}
 
+		private int visitaDfsV(int u, int tempo, int[] cor)
+		{
+			contador++;
+			Console.WriteLine("Vertuce " + u);
+			saida += u + ", ";  //Armazena a ordem de visita dos vertices em uma string
+			cor[u] = cinza;
+			this.d[u] = ++tempo;
+			List<int> listaAdj = grafoV.verticesV[u];
+			foreach (int v in listaAdj)
+			{
+				listaAdj = grafoV.verticesV[u];
+				if (cor[v] == branco)
+				{
+					this.antecessor[v] = u;
+					tempo = this.visitaDfsV(v, tempo, cor);
+				}
+			}
+			cor[u] = preto;
+			this.t[u] = ++tempo;
+			return tempo;
+		}
+
 		/**
 		 * Metodo que realiza a busca em profundidade propriamente dita.
 		 */
@@ -91,6 +123,37 @@ namespace AtividadePratica
 			Console.Write("\n Ordem de visita: ");
             Console.WriteLine(saida.Substring(0, saida.LastIndexOf(",")));
             Console.Write("\n");
+		}
+
+		public void buscaProfundidadeV()
+		{
+
+			int tempo = 0;
+			componentes = 1;
+			int[] cor = new int[this.grafoV.NumeroV];
+			for (int u = 0; u < this.grafoV.NumeroV; u++)
+			{
+				cor[u] = branco;
+				this.antecessor[u] = -1;
+			}
+			for (int u = 0; u < grafoV.NumeroV; u++)
+			{
+				if (cor[u] == branco)
+				{
+					tempo = this.visitaDfsV(u, tempo, cor);
+				}
+				if (contador != grafoV.NumeroV)
+				{
+					Console.WriteLine("entrou");
+					componentes++;
+					Console.WriteLine("vvv" + componentes);
+					break;
+				}
+
+			}
+			Console.Write("\n Ordem de visita: ");
+			Console.WriteLine(saida.Substring(0, saida.LastIndexOf(",")));
+			Console.Write("\n");
 		}
 
 	}
