@@ -17,7 +17,7 @@ namespace AtividadePratica
        
         public static String trocar(int i)
         {
-            String letras = "abcdefghi";
+            String letras = "abcdefghijklmnopqrstuv";
             if ((i >= 0) && (i <= letras.Length))
             {
                 return letras[i] + "";
@@ -30,7 +30,7 @@ namespace AtividadePratica
 
         public int destrocar(char v)
         {
-            String letras = "abcdefghi";
+            String letras = "abcdefghijklmnopqrstuv";
             int pos = -1;
             for (int i = 0; i < letras.Length; i++)
             {
@@ -65,8 +65,11 @@ namespace AtividadePratica
             int custo = 0;
             for (int v = 1; v < n; v++)
             {
-                Console.WriteLine(trocar(pi[v]) + " -> " + trocar(v) + " custo: " + G[pi[v], v]);
-                custo = custo + G[pi[v], v];
+                if (pi[v] != -1)
+                {
+                    Console.WriteLine(trocar(pi[v]) + " -> " + trocar(v) + " custo: " + G[pi[v], v]);
+                    custo = custo + G[pi[v], v];
+                }
             }
             Console.WriteLine("Custo Total:" + custo);
         }
@@ -89,7 +92,7 @@ namespace AtividadePratica
             for (int i = 0; i < n; i++)
             {
                 int u = extrairMenor(n);
-               cor[u] = CINZA;
+                cor[u] = CINZA;
                 for (int v = 0; v < n; v++)
                 {
                         if (G[u, v] != 0)

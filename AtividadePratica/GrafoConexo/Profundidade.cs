@@ -76,10 +76,10 @@ namespace AtividadePratica
 			saida += u + ", ";  //Armazena a ordem de visita dos vertices em uma string
 			cor[u] = cinza;
 			this.d[u] = ++tempo;
-			List<int> listaAdj = grafoV.verticesV[u];
-			foreach (int v in listaAdj)
+			List<int> listaAdjq = grafoV.verticesV[u];
+			foreach (int v in listaAdjq)
 			{
-				listaAdj = grafoV.verticesV[u];
+				listaAdjq = grafoV.verticesV[u];
 				if (cor[v] == branco)
 				{
 					this.antecessor[v] = u;
@@ -142,14 +142,13 @@ namespace AtividadePratica
 				{
 					tempo = this.visitaDfsV(u, tempo, cor);
 				}
-				if (contador != grafoV.NumeroV)
+				if (contador != grafoV.maior)
 				{
 					Console.WriteLine("entrou");
 					componentes++;
 					Console.WriteLine("vvv" + componentes);
-					break;
 				}
-
+				break;
 			}
 			Console.Write("\n Ordem de visita: ");
 			Console.WriteLine(saida.Substring(0, saida.LastIndexOf(",")));

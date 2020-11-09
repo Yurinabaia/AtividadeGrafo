@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AtividadePratica.Kruskal;
+using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
+using System.Linq;
+
 
 namespace AtividadePratica
 {
@@ -16,13 +16,12 @@ namespace AtividadePratica
 
 		public List<string> NOMESVERTICE = new List<string>();
 		public List<string> NOMESVERTICENaoDirigido = new List<string>();
+		public List<int> TodosVertice = new List<int>();
 		public List<int>[] verticesV = new List<int>[20];
 
 		public int numeroVertices { get; set; }
 		public int NumeroVerticesNaoDirigido { get; set; }
-		private int graNaoDirecionado = 0;
-		private bool isolado = true;
-		public int NumeroV = 0;
+		public int NumeroV = 0, maior = 0;
 		public Grafo(int numVertices, string nomeArquivo, int numeroVerticesNaoDirigido, string NomeArquivoNaoDirigido)
 		{
 			Console.WriteLine(NumeroVerticesNaoDirigido);
@@ -49,6 +48,7 @@ namespace AtividadePratica
 
 		public void addArestasNaoDirigido(int i, int s, int j)
 		{
+			if(verticesNaoDirigido[i] != null)
 			verticesNaoDirigido[i].Add(j + " Peso ==> " + s);
 		}
 		public void IMPRIMIR()
@@ -117,17 +117,33 @@ namespace AtividadePratica
 					string[] splitando = ler.Split(';');
 					if(!pulou)
 					NumeroV = int.Parse(splitando[0]);
-					if (pulou) 
+					if (pulou)
 					{
-                        Console.WriteLine(splitando[0] + " " + splitando[2] + " " + splitando[1]);
-						addArestasNaoDirigido(int.Parse(splitando[0]), int.Parse(splitando[2]), int.Parse(splitando[1]));
-						NOMESVERTICENaoDirigido.Add(splitando[0] + "-" + splitando[1] + "-" + splitando[2]);
-					}
+						if (ler.Split(';')[1] == "")
+						{
+							addArestasNaoDirigido(int.Parse(splitando[0]), -1, int.Parse(splitando[0]));
+							TodosVertice.Add(int.Parse(splitando[0]));
+						}
+						else
+						{
+							Console.WriteLine(splitando[0] + " " + splitando[2] + " " + splitando[1]);
+							if(int.Parse(splitando[0]) < int.Parse(splitando[0]))
+								addArestasNaoDirigido(int.Parse(splitando[0]), int.Parse(splitando[2]), int.Parse(splitando[1]));
+							else
+								addArestasNaoDirigido(int.Parse(splitando[1]), int.Parse(splitando[2]), int.Parse(splitando[0]));
 
+							NOMESVERTICENaoDirigido.Add(splitando[0] + "-" + splitando[1] + "-" + splitando[2]);
+							TodosVertice.Add(int.Parse(splitando[0]));
+							TodosVertice.Add(int.Parse(splitando[1]));
+						}
+					}
 					pulou = true;
 					ler = sw.ReadLine();
 				}
 			}
+
+			TodosVertice = TodosVertice.Distinct().ToList();
+			TodosVertice.Sort();
 			IMPRIMIRNaoDirigido();
 		}
 
@@ -179,51 +195,38 @@ namespace AtividadePratica
 		
 		public bool isAdjacente(int v1, int v2) 
         {
-			bool adjacencia = false;
-			int a = 0;
-			foreach (var item in verticesNaoDirigido)
+			int v3 = v1;
+			if (v1 > v2)
 			{
-				if (a < NumeroVerticesNaoDirigido && v1 == a)
-				{
-					
-					adjacencia = verticesNaoDirigido[a].Exists(x => x.Split(" ")[0] == v2.ToString());
-				}
-				a++;
+				return false;
 			}
-			a = 0;
-			foreach (var item in verticesNaoDirigido)
-			{
-				if (a < NumeroVerticesNaoDirigido && v2 == a)
-				{
 
-					adjacencia = verticesNaoDirigido[a].Exists(x => x.Split(" ")[0] == v1.ToString());
-				}
-				a++;
+			if (TodosVertice.Exists(x => x == v1) && TodosVertice.Exists(x => x == v2))
+			{
+				bool adjacencia = false;
+
+				adjacencia = verticesNaoDirigido[v1].Exists(x => x.Split(" ")[0] == v2.ToString());
+				if (!adjacencia && v2 < NumeroV)
+					adjacencia = verticesNaoDirigido[v2].Exists(x => x.Split(" ")[0] == v1.ToString());
+				return adjacencia;
 			}
-			return adjacencia;
-        }      
+			return false;
+		}      
 		
         public int getGrau(int v1)
         {
-			int a = 0;
-			foreach (var item in verticesNaoDirigido)
+			int cont = 0;
+			foreach (var item in NOMESVERTICENaoDirigido)
 			{
-				if (a < NumeroVerticesNaoDirigido)
+				foreach (var s in NOMESVERTICENaoDirigido)
 				{
-					foreach (var s in verticesNaoDirigido[a])
-					{
-						string[] splitando = s.Split(" ");
-						if (v1 == int.Parse(splitando[0]))
-							graNaoDirecionado++;
-					}
-					a++;
+					if(item.Split("-")[0] !=  )
 				}
 			}
-			getGrauS(v1);
-			return graNaoDirecionado;
+			return cont++;
         }
 
-		public void getGrauS(int v1)
+		public void getGrauS(int v1, ref int graNaoDirecionado)
 		{
 			int a = 0;
 			foreach (var item in verticesNaoDirigido)
@@ -246,101 +249,78 @@ namespace AtividadePratica
 		
         public bool isIsolado(int v1) 
         {
-
-			int a = 0;
-			foreach (var item in verticesNaoDirigido)
-			{
-				if (a < NumeroVerticesNaoDirigido)
-				{
-					foreach (var s in verticesNaoDirigido[a])
-					{
-						string[] splitando = s.Split(" ");
-						if (v1 == int.Parse(splitando[0]))
-							isolado = false;
-					}
-					a++;
-				}
-			}
-			isoladoS(v1);
-			return isolado;
-        }
-
-		public void isoladoS(int v1)
-		{
-			int a = 0;
-			foreach (var item in verticesNaoDirigido)
-			{
-				if (a < NumeroVerticesNaoDirigido)
-				{
-					if (a == v1)
-					{
-						foreach (var s in verticesNaoDirigido[a])
-						{
-							isolado = false;
-						}
-					}
-					a++;
-				}
-			}
+			return getGrau(v1) == 0;
 		}
+
+	
 
 
 		
         public bool isPendente(int v1) 
         {
-			bool pendente = false;
-			if (getGrau(v1) == 1)
-				pendente = true;
-
-
-			return pendente;
+			return getGrau(v1) == 1;
         }        
 
 		
         public bool isRegular()
         {
-			int qtdGrau = getGrau(1);
-			bool grafoRegular = true;
+			int qtdGrau = getGrau(TodosVertice[0]);//1 vertice
 
-			for (int i = 1; i <= numeroVertices - 1; i++)
-            {
-				graNaoDirecionado = 0;
-				if (getGrau(i) != qtdGrau)
-				{
-                    Console.WriteLine(i);
-					grafoRegular = false;
-				}
-            }
-			return grafoRegular;
+			foreach (var item in TodosVertice)
+			{
+				if (qtdGrau != getGrau(item))
+					return false;
+			}
+			return true;
         }     
 		
         public bool isNulo()
         {
-			bool grafoNulo = true;
+			int qtdGrau = 0;
 
-			for (int i = 0; i <= numeroVertices - 1; i++)
+			foreach (var item in TodosVertice)
 			{
-				if (getGrau(i) >  0)
-				{
-					grafoNulo = false;
-				}
+				if (qtdGrau != getGrau(item))
+					return false;
 			}
-			return grafoNulo;
-        }   
+			return true;
+        }
+		public bool Loop() 
+		{
+			foreach (var item in NOMESVERTICENaoDirigido)
+			{
+				if (item.Split("-")[0] == item.Split("-")[1])
+					return true;
+			}
+			return false;
+		}
+
+		public bool isParalelo() 
+		{
+			List<string> VALORESINVERTIDOS = new List<string>();
+			foreach (var item in NOMESVERTICENaoDirigido)
+			{
+				int valor1 = int.Parse(item.Split("-")[0]);
+				int valor2 = int.Parse(item.Split("-")[1]);
+				if (valor2 < valor1)
+					VALORESINVERTIDOS.Add(valor2 + "-" + valor1);
+				else
+					VALORESINVERTIDOS.Add(valor1 + "-" + valor2);
+					
+			}
+			VALORESINVERTIDOS = VALORESINVERTIDOS.Distinct().ToList();
+		return VALORESINVERTIDOS.Count != NOMESVERTICENaoDirigido.Count;
+
+		}
 		
         public bool isCompleto()
         {
 
-			bool grafoCompleto = true;
-
-			for (int i = 1; i <= numeroVertices - 1; i++)
+			foreach (var item in NOMESVERTICENaoDirigido)
 			{
-				if (getGrau(i) == 0)
-				{
-					grafoCompleto = false;
-				}
+				Console.WriteLine(item);
 			}
-			return grafoCompleto;
+			return true;
         }
         public bool isConexo()
         {
@@ -384,22 +364,9 @@ namespace AtividadePratica
 			else
 			return false;
         }
-
-
-
-		public int getCutVertices() 
+		public void DeletarV(List<string>[] G, int valorvertice) 
 		{
-			List<string>[] grafoclonado = new List<string>[20];
-			for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
-				grafoclonado[i] = new List<string>();
-
-			for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
-				verticesV[i] = new List<int>();
-
-
 			int a = 0;
-			//verticesNaoDirigido[i].Add(j + " Peso ==> " + s);
-
 			foreach (var item in verticesNaoDirigido)
 			{
 				if (a < NumeroVerticesNaoDirigido)
@@ -409,38 +376,67 @@ namespace AtividadePratica
 						string[] splitando = s.Split(" ");
 						//Console.WriteLine(a + " " + splitando[0]);
 						//Console.WriteLine(s);
-						if (a != 5 && splitando[0] != "5") 
+						if (a != valorvertice && splitando[0] != valorvertice.ToString())
 						{
-							grafoclonado[a].Add(s);
+							Console.WriteLine(a + " " + splitando[0]);
+							G[a].Add(s);
 						}
 					}
 					a++;
 				}
 			}
-			a = 0;
+		}
 
-			Console.WriteLine("Grafo não dirigido \n\n\n");
-			foreach (var item in grafoclonado)
+
+		public int getCutVertices() 
+		{
+			int contageCutV = 0;
+				
+
+			List<string>[] grafoclonado = new List<string>[20];
+
+			for (int j = 2; j < NumeroV; j++)
 			{
-				if (a < NumeroVerticesNaoDirigido)
+				if(j == 6)
 				{
-					foreach (var s in grafoclonado[a])
-					{
-						string[] splitando = s.Split(" ");
-						Console.WriteLine(a + " ------- " + s);
-						verticesV[a].Add(int.Parse(splitando[0].Trim()));
-						Console.WriteLine(splitando[0] + " ---------- " + a + " " + splitando[1] + " " + splitando[2] + " " + splitando[3]);
 
-					}
-					a++;
 				}
+
+				for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
+					grafoclonado[i] = new List<string>();
+
+				for (int i = 0; i < NumeroVerticesNaoDirigido; i++)
+					verticesV[i] = new List<int>();
+
+				DeletarV(grafoclonado, j);
+
+				int a = 0;
+
+				Console.WriteLine("Grafo não dirigido \n\n\n");
+				foreach (var item in grafoclonado)
+				{
+					if (a < NumeroVerticesNaoDirigido)
+					{
+						foreach (var s in grafoclonado[a])
+						{
+							string[] splitando = s.Split(" ");
+							Console.WriteLine(a + " ------- " + s);
+							verticesV[a - 1].Add(int.Parse(splitando[0].Trim()) - 1);
+							Console.WriteLine(splitando[0] + " ---------- " + a + " " + splitando[1] + " " + splitando[2] + " " + splitando[3]);
+							if (maior < a)
+								maior = a;
+							if (maior < int.Parse(splitando[0].Trim()))
+								maior = int.Parse(splitando[0].Trim());
+						}
+						a++;
+					}
+				}
+				GrafoM solucao = new GrafoM(this);
+				solucao.buscaProfundidadeV();
+				if (solucao.componentes != 1)
+					contageCutV++;
 			}
-			GrafoM solucao = new GrafoM(this);
-			solucao.buscaProfundidadeV();
-			if (solucao.componentes == 1)
-				return 0;
-			else
-				return 1;
+			return contageCutV;
 		}
 
 		public void AlgoritmoPrim(int vertice) 
@@ -483,9 +479,30 @@ namespace AtividadePratica
 			//Mostra o menor caminho
 			prim.mostrarCaminho(matriz, NumeroV);
 		}
-		public void AlgoritmoKurskal() 
+		public void AlgoritmoKurskal(int vertice) 
 		{
-			
+			int contador = 1;
+			bool entrou = false;
+			Func of = new Func();
+			using (StreamReader sw = new StreamReader("grafonaodirigido" + ".txt"))
+			{
+				sw.ReadLine();
+				string ler = sw.ReadLine();
+				while (ler != null)
+				{
+					if (contador == vertice)
+					{
+						of.addAOGrafo(ler);
+						entrou = true;
+					}
+					if(entrou)
+						of.addAOGrafo(ler);
+					contador++;
+
+					ler = sw.ReadLine();
+				}
+			}
+			of.ExecFunc();
 		}
 
 
