@@ -1,0 +1,59 @@
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.exe
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.deps.json
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.json
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.dev.json
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csprojAssemblyReference.cache
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfoInputs.cache
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfo.cs
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\source\repos\AtividadePratica\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csprojAssemblyReference.cache
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfoInputs.cache
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfo.cs
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csproj.CoreCompileInputs.cache
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.exe
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.deps.json
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.json
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.dev.json
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.genruntimeconfig.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.exe
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.deps.json
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.json
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.dev.json
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csprojAssemblyReference.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfoInputs.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfo.cs
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\Downloads\AtividadeGrafo-yuri\Downloads\AtividadeGrafo-main\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.exe
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.deps.json
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.json
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.dev.json
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csprojAssemblyReference.cache
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfoInputs.cache
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfo.cs
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csproj.CoreCompileInputs.cache
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\CEMG Engenharia\Desktop\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.genruntimeconfig.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.exe
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.deps.json
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.json
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.runtimeconfig.dev.json
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\bin\Debug\netcoreapp3.1\AtividadePratica.pdb
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.csprojAssemblyReference.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfoInputs.cache
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.AssemblyInfo.cs
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.dll
+C:\Users\cida_\Downloads\AtividadeGrafo-master\AtividadePratica\obj\Debug\netcoreapp3.1\AtividadePratica.pdb
